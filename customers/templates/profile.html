@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<div class="body-content">
+    <h1>My Account</h1>
+
+    <button class="btn btn-secondary"><a href="{% url 'edit_profile' %}">Edit my profile</a></button>
+</div>
+
+{% endif %}
+
+{% endblock %}
