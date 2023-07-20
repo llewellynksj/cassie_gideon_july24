@@ -1,6 +1,12 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from django import forms
+from .models import Theme
+
+theme_choices = Theme.objects.all().values_list('theme', 'theme')
+choice_themes = []
+for item in theme_choices:
+    choice_themes.append(item)
 
 
 class RegisterForm(UserCreationForm):
@@ -22,6 +28,7 @@ class RegisterForm(UserCreationForm):
 
 class EditProfileForm(UserChangeForm):
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control'}))
+    telephone = forms.IntegerField(widget=forms.NumberInput(attrs={'class': 'form-control'}))
     first_name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     last_name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     username = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))

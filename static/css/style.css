@@ -129,6 +129,11 @@ img {
     padding: 0 5px;
 }
 
+.profile-pic {
+    height: 200px;
+    width: 200px;
+}
+
 /* Login page styles */
 .hover-link:hover {
     text-decoration: underline;
