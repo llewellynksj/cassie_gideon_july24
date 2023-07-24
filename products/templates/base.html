@@ -44,7 +44,7 @@
                           My Account
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+                            <li><a class="dropdown-item" href="{% url 'profile' user.customer.id %}">Profile</a></li>
                           <li><a class="dropdown-item" href="{% url 'settings' %}">Settings</a></li>
                         </ul>
                     </li>

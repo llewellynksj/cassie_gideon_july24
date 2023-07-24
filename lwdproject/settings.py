@@ -134,7 +134,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-LOGIN_REDIRECT_URL = 'profile'
+LOGIN_REDIRECT_URL = "{% url 'profile' user.customer.id %}"
 LOGOUT_REDIRECT_URL = 'home'
 
 # Default primary key field type
