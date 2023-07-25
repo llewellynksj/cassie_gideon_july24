@@ -23,12 +23,10 @@ class UserRegisterView(generic.CreateView):
 class UserProfileView(generic.ListView):
     model = Customer
     template_name = 'profile.html'
-    # success_url = reverse_lazy('home')
 
+    # code from Codemy 'Create a Blog Profile Page' Video: http://bit.ly/3OsUgy8:
     def get_context_data(self, *args, **kwargs):
-        profiles = Customer.objects.all()
         context = super(UserProfileView, self).get_context_data(*args, **kwargs)
-
         profile_user = get_object_or_404(Customer, id=self.kwargs['pk'])
         context['profile_user'] = profile_user
         return context
@@ -41,3 +39,12 @@ class UserEditView(generic.UpdateView):
 
     def get_object(self):
         return self.request.user
+
+
+class UpdateProfileView(generic.UpdateView):
+    model = Customer
+    template_name = 'update_profile.html'
+    fields = ['profile_pic', 'date_of_wedding', 'website_url']
+
+    def get_success_url(self) -> str:
+        return reverse_lazy('profile', kwargs={'pk': self.object.pk})

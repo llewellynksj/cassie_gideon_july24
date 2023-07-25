@@ -3,16 +3,20 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-<div class="body-content">
-    <h1>Update Your Profile</h1>
+    {% if user.id == customer.user.id %}
+        <div class="body-content">
+            <h1>Update Your Profile</h1>
 
-    <div class="form-group">
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="btn btn-secondary">Update</button>
-        </form>
-    </div>
-</div>
+            <div class="form-group">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button class="btn btn-secondary">Update</button>
+                </form>
+            </div>
+        </div>
+    {% else %}
+        You are not registered to edit this account. Please <a href="{% url 'login' %}">Login</a>.
+    {% endif %}
 {% endif %}
 {% endblock %}
