@@ -1,12 +1,12 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from django import forms
-from .models import Theme, Customer
+from .models import Customer
 
-theme_choices = Theme.objects.all().values_list('theme', 'theme')
-choice_themes = []
-for item in theme_choices:
-    choice_themes.append(item)
+# theme_choices = Theme.objects.all().values_list('theme', 'theme')
+# choice_themes = []
+# for item in theme_choices:
+#     choice_themes.append(item)
 
 
 class RegisterForm(UserCreationForm):

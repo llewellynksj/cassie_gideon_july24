@@ -7,8 +7,11 @@
         <h1>My Account</h1>
         <h3>Welcome to your profile page {{ user.first_name }}</h3>
         <br />
-        <button class="btn btn-outline-secondary"><a href="{% url 'update_profile' user.customer.id %}">Update Your
+        <div>
+            <button class="btn btn-outline-secondary"><a href="{% url 'update_profile' user.customer.id %}">Update Your
                 Profile</a></button>
+            <button class="btn btn-outline-secondary"><a href="">Book An Appointment</a></button>
+        </div>
         <br />
         <div>
             <img src="{{ user.customer.profile_pic.url }}" alt="" class="rounded-circle profile-pic">

@@ -6,7 +6,7 @@ from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
 from .forms import RegisterForm, EditProfileForm, PasswordUpdateForm, CreateProfileForm
 from django.contrib.auth.models import User
-from .models import Theme, Customer
+from .models import Customer
 
 
 class PasswordsChangeView(PasswordChangeView):
@@ -54,7 +54,6 @@ class CreateProfileView(generic.CreateView):
     model = Customer
     form_class = CreateProfileForm
     template_name = 'create_profile.html'
-    success_url = reverse_lazy('home')
 
     # Makes the user id available to be able to be saved to the form
     # Code from Codemy 'Profile Account Creation - Django Blog #32' video:
@@ -62,5 +61,5 @@ class CreateProfileView(generic.CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-    # def get_success_url(self) -> str:
-    #     return reverse_lazy('profile', kwargs={'pk': self.object.pk})
+    def get_success_url(self) -> str:
+        return reverse_lazy('profile', kwargs={'pk': self.object.pk})

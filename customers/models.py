@@ -16,11 +16,11 @@ class Customer(models.Model):
         return reverse('home')
 
 
-class Theme(models.Model):
-    theme = models.CharField(max_length=100)
+# class Theme(models.Model):
+#     theme = models.CharField(max_length=100)
 
-    def __str__(self):
-        return self.theme
+#     def __str__(self):
+#         return self.theme
 
-    def get_absolute_url(self):
-        return reverse('home')
+#     def get_absolute_url(self):
+#         return reverse('home')
