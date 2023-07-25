@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
-# from django.views.generic import DetailView
+from django.views.generic import CreateView
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
-from .forms import RegisterForm, EditProfileForm, PasswordUpdateForm
+from .forms import RegisterForm, EditProfileForm, PasswordUpdateForm, CreateProfileForm
 from django.contrib.auth.models import User
 from .models import Theme, Customer
 
@@ -46,5 +46,20 @@ class UpdateProfileView(generic.UpdateView):
     template_name = 'update_profile.html'
     fields = ['profile_pic', 'date_of_wedding', 'website_url']
 
+    def get_success_url(self) -> str:
+        return reverse_lazy('profile', kwargs={'pk': self.object.pk})
+
+
+class CreateProfileView(generic.CreateView):
+    model = Customer
+    form_class = CreateProfileForm
+    template_name = 'create_profile.html'
+
+    # Makes the user id available to be able to be saved to the form
+    # Code from Codemy 'Profile Account Creation - Django Blog #32' video:
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+    
     def get_success_url(self) -> str:
         return reverse_lazy('profile', kwargs={'pk': self.object.pk})

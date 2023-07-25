@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from django import forms
-from .models import Theme
+from .models import Theme, Customer
 
 theme_choices = Theme.objects.all().values_list('theme', 'theme')
 choice_themes = []
@@ -46,3 +46,14 @@ class PasswordUpdateForm(PasswordChangeForm):
     class Meta:
         model = User
         fields = ('old_password', 'new_password1', 'new_password2')
+
+
+class CreateProfileForm(forms.ModelForm):
+    class Meta:
+        model = Customer
+        fields = ('profile_pic', 'date_of_wedding', 'website_url')
+        widgets = {
+            # 'profile_pic': forms.
+            'date_of_wedding': forms.DateInput(attrs={'class': 'form-control'}),
+            'website_url': forms.TextInput(attrs={'class': 'form-control'}),
+        }

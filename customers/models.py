@@ -12,6 +12,9 @@ class Customer(models.Model):
     def __str__(self):
         return str(self.user)
 
+    def get_absolute_url(self):
+        return reverse('home')
+
 
 class Theme(models.Model):
     theme = models.CharField(max_length=100)
