@@ -3,28 +3,26 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-    {% if user.id == customer.user.id %}
-        <div class="body-content">
-            <h1>My Account</h1>
-            <h3>Welcome to your profile page {{ user.first_name }}</h3>
-            <br/>
-            <button class="btn btn-outline-secondary"><a href="{% url 'update_profile' user.customer.id %}">Update Your Profile</a></button>
-            <br/>
-            <div>
-                <img src="{{ user.customer.profile_pic.url }}" alt="" class="rounded-circle profile-pic">
-                <br/>
-                <h3>Your Details</h3>
-                <p>Name: {{user.first_name}} {{ user.last_name }}</p>
-                <p>Email Address: {{ user.email }}</p>
-                <p>Date of Wedding: {{ user.customer.date_of_wedding }}</p>
-                {% if user.customer.website_url %}
-                    <p><a href="{{ user.customer.website_url }}">Visit my Wedding Website</a></p>
-                {% endif %}
-            </div>
-        
-            <button class="btn btn-outline-secondary"><a href="{% url 'settings' %}">Go To Account Settings</a></button>
+    <div class="body-content">
+        <h1>My Account</h1>
+        <h3>Welcome to your profile page {{ user.first_name }}</h3>
+        <br />
+        <button class="btn btn-outline-secondary"><a href="{% url 'update_profile' user.customer.id %}">Update Your
+                Profile</a></button>
+        <br />
+        <div>
+            <img src="{{ user.customer.profile_pic.url }}" alt="" class="rounded-circle profile-pic">
+            <br />
+            <h3>Your Details</h3>
+            <p>Name: {{user.first_name}} {{ user.last_name }}</p>
+            <p>Email Address: {{ user.email }}</p>
+            <p>Date of Wedding: {{ user.customer.date_of_wedding }}</p>
+            {% if user.customer.website_url %}
+            <p><a href="{{ user.customer.website_url }}">Visit my Wedding Website</a></p>
+            {% endif %}
         </div>
-    {% endif %}
+        <button class="btn btn-outline-secondary"><a href="{% url 'settings' %}">Go To Account Settings</a></button>
+    </div>
 {% endif %}
 
 {% endblock %}

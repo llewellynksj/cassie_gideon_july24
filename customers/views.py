@@ -54,12 +54,13 @@ class CreateProfileView(generic.CreateView):
     model = Customer
     form_class = CreateProfileForm
     template_name = 'create_profile.html'
+    success_url = reverse_lazy('home')
 
     # Makes the user id available to be able to be saved to the form
     # Code from Codemy 'Profile Account Creation - Django Blog #32' video:
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
-    
-    def get_success_url(self) -> str:
-        return reverse_lazy('profile', kwargs={'pk': self.object.pk})
+
+    # def get_success_url(self) -> str:
+    #     return reverse_lazy('profile', kwargs={'pk': self.object.pk})
