@@ -129,6 +129,17 @@ img {
     padding: 0 5px;
 }
 
+/* Products page styles */
+.product-link * {
+    margin-bottom: 0;
+    margin-left: 4px;
+}
+
+.product-link h3 {
+    margin-top: 4px;
+}
+
+
 .profile-pic {
     height: 200px;
     width: 200px;
