@@ -145,6 +145,11 @@ img {
     width: 200px;
 }
 
+/* Product details page styles */
+.image-container {
+    max-width: 500px;
+}
+
 /* Login page styles */
 .hover-link:hover {
     text-decoration: underline;

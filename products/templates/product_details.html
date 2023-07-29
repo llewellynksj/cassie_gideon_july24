@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="body-content container-fluid">
+    <br>
+    
+    <div class="row">
+        <div class="image-container product-image col-sm">
+            <img src=" {{ product.main_image.url }}" alt="category image">
+        </div>  
+        <div class="col-sm">
+            <h2>{{ product.item_name }}</h2>
+            <p>{{ product.description }}</p>
+            <p>Collection: {{ product.category }}</p>
+            <p>Colours: {{ product.colours }}</p>
+            <p>Available in sizes: {{ product.sizes_avail }}</p>
+            <p>Price: £{{ product.price }}</p>
+            <a href="" class="btn btn-outline-danger">Add to Favourites</a>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %} 

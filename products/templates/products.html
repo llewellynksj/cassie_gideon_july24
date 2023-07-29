@@ -3,14 +3,15 @@
 {% block content %}
 
 <div class="body-content container-fluid">
+    <h1 class="text-center"><em>All Styles</em></h1>
     <div class="col-12">
         <div class="row category row-cols-2 row-cols-sm-3 row-cols-md-4 collection-container">
             {% for product in product_list %}
             <div class="card-body">
-                <div class="image-container product-image">
-                    <img src=" {{ product.main_image.url }}" alt="category image">
-                </div>
-                <a href="" class="product-link">
+                <a href="{% url 'product_details' product.pk %}" class="product-link">
+                    <div class="image-container product-image">
+                        <img src=" {{ product.main_image.url }}" alt="category image">
+                    </div>
                     <h3 class="">{{ product.item_name }}</h3>
                     <p>{{ product.category }}</p>
                     <p>£{{ product.price }}</p>

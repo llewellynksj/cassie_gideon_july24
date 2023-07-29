@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 from .models import Category, Product, Theme
+from products.models import Product
 from django.contrib import messages
 
 
@@ -14,5 +15,6 @@ class ProductList(generic.ListView):
     template_name = 'products.html'
 
 
-# def home(request):
-#     return render(request, 'home.html', {})
+class ProductDetails(generic.DetailView):
+    model = Product
+    template_name = 'product_details.html'

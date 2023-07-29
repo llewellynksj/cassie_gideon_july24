@@ -7,6 +7,17 @@ from django.urls import reverse_lazy
 from .forms import RegisterForm, EditProfileForm, PasswordUpdateForm, CreateProfileForm
 from django.contrib.auth.models import User
 from .models import Customer
+from django.http import HttpResponseRedirect
+
+
+def FavouriteAdd(request, id):
+    # code from https://www.youtube.com/watch?v=H4QPHLmsZMU
+    product = get_object_or_404(Product, id=id)
+    if product.favourites.filter(id=request.user.id).exists():
+        product.favourites.remove(request.user)
+    else:
+        product.favourites.add(request.user)
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
 class PasswordsChangeView(PasswordChangeView):
