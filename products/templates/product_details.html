@@ -19,7 +19,13 @@
                 <!-- <a href="" class="btn btn-outline-danger">Add to Favourites</a> -->
                 <form action="{% url 'like_post' product.pk %}" method="POST">
                     {% csrf_token %}
-                    <button type="submit", name="product_id", value="{{ product.id }}", class="btn btn-outline-danger btn-sm">Add to Favourites</button>
+
+                    {% if liked %}
+                        <button type="submit", name="product_id", value="{{ product.id }}", class="btn btn-outline-primary btn-sm">Remove from Favourites</button>
+                    {% else %}
+                        <button type="submit", name="product_id", value="{{ product.id }}", class="btn btn-outline-danger btn-sm">Add to Favourites</button>
+                    {% endif %}
+                    
                 </form>
             {% else %}
                 <p><em><a href="{% url 'login' %}">Login</a> to save this dress to your Favourites</em></p>

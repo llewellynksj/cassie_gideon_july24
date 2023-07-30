@@ -37,3 +37,12 @@ class ProductList(generic.ListView):
 class ProductDetails(generic.DetailView):
     model = Product
     template_name = 'product_details.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(ProductDetails, self).get_context_data(*args, **kwargs)
+        data = get_object_or_404(Product, id=self.kwargs['pk'])
+        liked = False
+        if data.likes.filter(id=self.request.user.id).exists():
+            liked = True
+        context['liked'] = liked
+        return context
