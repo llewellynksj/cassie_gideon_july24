@@ -9,10 +9,10 @@ body {
     margin: auto;
 }
 
-a {
+/* a {
     text-decoration: none;
     color: #252525;
-}
+} */
 
 button {
     border: none;
@@ -139,7 +139,6 @@ img {
     margin-top: 4px;
 }
 
-
 .profile-pic {
     height: 200px;
     width: 200px;
@@ -155,7 +154,6 @@ img {
     text-decoration: underline;
     color: blue;
 }
-
 
 
 /* Media queries */

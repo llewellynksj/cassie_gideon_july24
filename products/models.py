@@ -22,7 +22,7 @@ class Product(models.Model):
     description = models.TextField(default='placeholder', blank=True, max_length=1000)
     colours = models.TextField(default='Ivory', blank=True, max_length=500)
     sizes_avail = models.TextField(default='Enquire in store', blank=True, max_length=500)
-    favourites = models.ManyToManyField(User, related_name='favourite', blank=True)
+    likes = models.ManyToManyField(User, related_name='blog_post')
 
     def __str__(self):
         return self.item_name

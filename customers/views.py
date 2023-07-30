@@ -10,16 +10,6 @@ from .models import Customer
 from django.http import HttpResponseRedirect
 
 
-def FavouriteAdd(request, id):
-    # code from https://www.youtube.com/watch?v=H4QPHLmsZMU
-    product = get_object_or_404(Product, id=id)
-    if product.favourites.filter(id=request.user.id).exists():
-        product.favourites.remove(request.user)
-    else:
-        product.favourites.add(request.user)
-    return HttpResponseRedirect(request.META['HTTP_REFERER'])
-
-
 class PasswordsChangeView(PasswordChangeView):
     form_class = PasswordUpdateForm
     success_url = reverse_lazy('profile')
@@ -66,7 +56,7 @@ class CreateProfileView(generic.CreateView):
     form_class = CreateProfileForm
     template_name = 'create_profile.html'
 
-    # Makes the user id available to be able to be saved to the form
+    # Make the user id available to be able to be saved to the form
     # Code from Codemy 'Profile Account Creation - Django Blog #32' video:
     def form_valid(self, form):
         form.instance.user = self.request.user
