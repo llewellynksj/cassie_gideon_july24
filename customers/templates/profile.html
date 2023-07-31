@@ -3,7 +3,7 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-    <div class="body-content">
+    <div class="body-content container-fluid">
         <h1>My Account</h1>
         <h3>Welcome to your profile page {{ user.first_name }}</h3>
         <br />
@@ -26,19 +26,22 @@
         </div>
         {% if user.fav_products %}
             <h3>My Favourites</h3>
-                {% for product in user.fav_products.all %}
-                <div class="card-body">
-                    <a href="{% url 'product_details' product.pk %}" class="product-link">
-                        <div class="image-container product-image">
-                            <img src=" {{ product.main_image.url }}" alt="category image">
+            <div class="container-fluid">
+                <div class="row ow-cols-2 row-cols-sm-3 row-cols-md-4">
+                    {% for product in user.fav_products.all %}
+                        <div class="col">
+                            <a href="{% url 'product_details' product.pk %}" class="product-link">
+                                <img src=" {{ product.main_image.url }}" alt="category image" class="img-thumbnail">
+                                <h3 class="">{{ product.item_name }}</h3>
+                                <p>{{ product.category }}</p>
+                                <p>£{{ product.price }}</p>
+                            </a>
                         </div>
-                        <h3 class="">{{ product.item_name }}</h3>
-                        <p>{{ product.category }}</p>
-                        <p>£{{ product.price }}</p>
-                    </a>
+                    {% endfor %}
                 </div>
-                {% endfor %}
+            </div>
         {% endif %}
+        <br>
         <button class="btn btn-outline-secondary"><a href="{% url 'settings' %}">Go To Account Settings</a></button>
     </div>
 {% endif %}

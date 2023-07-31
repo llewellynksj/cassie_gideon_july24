@@ -155,6 +155,13 @@ img {
     color: blue;
 }
 
+/* Profile page styles */
+.img-thumbnail {
+    width: 200px;
+    height: auto;
+}
+
+
 
 /* Media queries */
 @media (min-width: 576px) {
