@@ -54,6 +54,6 @@ class CreateProfileForm(forms.ModelForm):
         fields = ('profile_pic', 'date_of_wedding', 'website_url')
         widgets = {
             # 'profile_pic': forms.
-            'date_of_wedding': forms.DateInput(attrs={'class': 'form-control'}),
+            'date_of_wedding': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'website_url': forms.TextInput(attrs={'class': 'form-control'}),
         }

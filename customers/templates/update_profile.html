@@ -3,10 +3,9 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-    <!-- {% if user.id == customer.user.id %} -->
-        <div class="body-content">
+    <div class="body-content">
+        {% if user.id == customer.user.id %}
             <h1>Update Your Profile</h1>
-
             <div class="form-group">
                 <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
@@ -14,11 +13,10 @@
                     <button class="btn btn-secondary">Update</button>
                 </form>
             </div>
-        </div>
-    <!-- {% else %}
-        You are not registered to edit this account. Please <a href="{% url 'login' %}">Login</a>.
-    {% endif %} -->
-{% else %}
-    You are not able to do this. Please <a href="{% url 'login' %}">Login</a>.
+        {% else %}
+            <br>
+            <h3>You are not registered to edit this account. Please <a href="{% url 'login' %}">Login</a>.</h3>
+        {% endif %}
+    </div>
 {% endif %}
 {% endblock %}

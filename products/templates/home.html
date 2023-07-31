@@ -11,7 +11,7 @@
                     <div class="carousel-overlay">
                         <h2><em><span id="hero-text1">Find your</span><span id="hero-text2"> perfect gown</span></em></h2>
                         <button type="button">
-                            <a href="">Book an appointment</a>
+                            <a href="" class="link-no-decor">Book an appointment</a>
                         </button>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
         <div class="section-title">
             <h2><em>Our Collections</em></h2>
             <button type="button">
-                <a href="{% url 'products' %}">Shop all styles</a>
+                <a href="{% url 'products' %}" class="link-no-decor">Shop all styles</a>
             </button>
         </div>
 
@@ -50,10 +50,10 @@
                     <div class="row category row-cols-2 row-cols-md-3 collection-container">
                         {% for category in category_list %}
                         <div class="card-body">
-                            <div>
-                                <img src=" {{ category.category_image.url }}" alt="category image">
-                            </div>
                             <a href="{% url 'category' category.category_name %}" class="category-link">
+                                <div>
+                                    <img src=" {{ category.category_image.url }}" alt="category image">
+                                </div>
                                 <h3 class="card-title">{{ category.category_name }}</h3>
                             </a>
                         </div>

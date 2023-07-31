@@ -9,10 +9,10 @@ body {
     margin: auto;
 }
 
-/* a {
+.link-no-decor, .product-link {
     text-decoration: none;
     color: #252525;
-} */
+}
 
 button {
     border: none;

@@ -12,9 +12,9 @@
                     <div class="image-container product-image">
                         <img src=" {{ product.main_image.url }}" alt="category image">
                     </div>
-                    <h3 class="">{{ product.item_name }}</h3>
-                    <p>{{ product.category }}</p>
-                    <p>£{{ product.price }}</p>
+                    <h3 class="link-no-decor">{{ product.item_name }}</h3>
+                    <p class="link-no-decor">{{ product.category }}</p>
+                    <p class="link-no-decor">£{{ product.price }}</p>
                 </a>
             </div>
             {% endfor %}
