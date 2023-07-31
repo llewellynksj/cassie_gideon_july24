@@ -27,7 +27,7 @@
         {% if user.fav_products %}
             <h3>My Favourites</h3>
             <div class="container-fluid">
-                <div class="row ow-cols-2 row-cols-sm-3 row-cols-md-4">
+                <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4">
                     {% for product in user.fav_products.all %}
                         <div class="col">
                             <a href="{% url 'product_details' product.pk %}" class="product-link">
