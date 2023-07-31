@@ -139,11 +139,6 @@ img {
     margin-top: 4px;
 }
 
-.profile-pic {
-    height: 200px;
-    width: 200px;
-}
-
 /* Product details page styles */
 .image-container {
     max-width: 500px;
@@ -156,12 +151,19 @@ img {
 }
 
 /* Profile page styles */
+.profile-pic {
+    height: 200px;
+    width: auto;
+}
+
+.favs-title, .profile-section {
+    margin-left: 20px;
+}
+
 .img-thumbnail {
     width: 200px;
     height: auto;
 }
-
-
 
 /* Media queries */
 @media (min-width: 576px) {
