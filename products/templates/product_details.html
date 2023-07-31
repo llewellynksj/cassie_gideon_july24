@@ -16,7 +16,6 @@
             <p>Available in sizes: {{ product.sizes_avail }}</p>
             <p>Price: £{{ product.price }}</p>
             {% if user.is_authenticated %}
-                <!-- <a href="" class="btn btn-outline-danger">Add to Favourites</a> -->
                 <form action="{% url 'like_post' product.pk %}" method="POST">
                     {% csrf_token %}
 
