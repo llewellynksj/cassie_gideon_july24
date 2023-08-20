@@ -8,4 +8,6 @@ urlpatterns = [
     path('<int:pk>/profile/', views.UserProfileView.as_view(), name='profile'),
     path('<int:pk>/update_profile/', views.UpdateProfileView.as_view(), name='update_profile'),
     path('create_profile/', views.CreateProfileView.as_view(), name='create_profile'),
+    path('<int:pk>/booking/', views.DisplayBookingPage.as_view(), name='booking'),
+    # path('booking/<int:year>/<str:month>/', views.DisplayBookingCalendar, name='calendar')
 ]

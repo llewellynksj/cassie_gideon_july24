@@ -8,6 +8,32 @@ from .forms import RegisterForm, EditProfileForm, PasswordUpdateForm, CreateProf
 from django.contrib.auth.models import User
 from .models import Customer
 from django.http import HttpResponseRedirect
+import calendar
+from calendar import HTMLCalendar
+
+
+class DisplayBookingPage(generic.ListView):
+    model = Customer
+    template_name = 'booking.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(DisplayBookingPage, self).get_context_data(*args, **kwargs)
+        profile_user = get_object_or_404(Customer, id=self.kwargs['pk'])
+        context['profile_user'] = profile_user
+        return context
+# def DisplayBookingCalendar(request, year, month):
+#     month = month.capitalize()
+
+#     month_number = list(calendar.month_name).index(month)
+#     month_number = int(month_number)
+
+#     show_calendar = HTMLCalendar().formatmonth(year, month_number)
+
+#     return render(request, 'booking.html', {
+#         'year': year,
+#         'month': month,
+#         'month_number': month_number,
+#         'show_calendar': show_calendar, })
 
 
 class PasswordsChangeView(PasswordChangeView):

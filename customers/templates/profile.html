@@ -9,7 +9,7 @@
         <br />
         <div>
             <button class="btn btn-outline-secondary mx-2"><a class="link-no-decor" href="{% url 'update_profile' user.customer.id %}">Update Your Profile</a></button>
-            <button class="btn btn-outline-secondary mx-2"><a class="link-no-decor" href="">Book An Appointment</a></button>
+            <button class="btn btn-outline-secondary mx-2"><a class="link-no-decor" href="{% url 'booking_form' user.customer.id %}">Book An Appointment</a></button>
             <button class="btn btn-outline-secondary mx-2"><a class="link-no-decor" href="{% url 'settings' %}">Go To Account Settings</a></button>
         </div>
             <br />

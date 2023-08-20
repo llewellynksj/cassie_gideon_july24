@@ -9,7 +9,7 @@
             {% for product in product_list %}
             <div class="card-body">
                 <a href="{% url 'product_details' product.pk %}" class="product-link">
-                    <div class="image-container product-image">
+                    <div class="image-container">
                         <img src=" {{ product.main_image.url }}" alt="category image">
                     </div>
                     <h3 class="link-no-decor">{{ product.item_name }}</h3>
